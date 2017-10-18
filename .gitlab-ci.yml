@@ -111,7 +111,7 @@ ubuntu-i386:latest:
     - ./autogen.sh
   script:
     - ./configure
-    - make -k all V=1
+    - make -j4 -k all V=1
   artifacts:
     untracked: true
     expire_in: '1 hour'
@@ -121,7 +121,7 @@ ubuntu-i386:latest:
   before_script:
     - bash bin/tests/system/ifconfig.sh up
   script:
-    - make -k check V=1
+    - make -j4 -k check V=1
 
 build:debian:oldstable:amd64:
   <<: *debian_oldstable_amd64_image
