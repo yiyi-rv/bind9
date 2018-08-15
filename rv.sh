@@ -6,7 +6,7 @@ sudo apt-get install -y libssl-dev libcap-dev
 # Build the project
 CC=cc
 LD=ld
-mkdir build-atf; cd build-atf; ../unit/atf-src/configure --enable-tools --disable-shared --prefix=/tmp/atf; make -j20; make install; cd ../
+mkdir build-atf; cd build-atf; ../unit/atf-src/configure --enable-tools --disable-shared --prefix=/tmp/atf; make -j`nproc`; make install; cd ../
 CC=rvpc LD=rvpc ./configure --with-atf=/tmp/atf
 make -C ./lib/dns gen BUILD_CC=cc # Avoid hang
 make -j`nproc`
