@@ -1,7 +1,7 @@
 set -x # Print debug info
 
 # Install necessary packages
-sudo apt-get install -y libssl-dev libcap-dev
+sudo apt-get install -y libssl-dev libcap-dev automake
 
 # Build the project
 CC=cc
