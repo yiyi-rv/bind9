@@ -7,14 +7,14 @@ sudo apt-get install -y libssl-dev libcap-dev automake
 CC=cc
 LD=ld
 mkdir build-atf; cd build-atf; ../unit/atf-src/configure --enable-tools --disable-shared --prefix=/tmp/atf; make -j`nproc`; make install; cd ../
-CC=rvpc LD=rvpc ./configure --with-atf=/tmp/atf
+CC=kcc LD=kcc ./configure --with-atf=/tmp/atf
 make -C ./lib/dns gen BUILD_CC=cc # Avoid hang
 make -j`nproc`
 
 # Tests
 report_path=`pwd`/report
 /tmp/atf/bin/atf-run ./lib/dns/tests/dispatch_test
-cd ./bin/tests/system/smartsign; sh setup.sh; RVP_ANALYSIS_ARGS="--html-dir $report_path" sh tests.sh
+cd ./bin/tests/system/smartsign; sh setup.sh; sh tests.sh
 
 # Upload report
-rv-upload-report $report_path
+# rv-upload-report $report_path
