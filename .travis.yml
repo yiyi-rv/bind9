@@ -1,2 +1,2 @@
 script:
-  - bash <(curl -s https://runtimeverification.com/toolkit/docker/bash) nightly-2018-09-06
+  - bash <(curl -s https://runtimeverification.com/toolkit/docker/bash) nightly-2018-09-14
