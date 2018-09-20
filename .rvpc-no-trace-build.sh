@@ -7,6 +7,11 @@ set -x # Print debug info
 mkdir build-atf; cd build-atf; CC=clang ../unit/atf-src/configure --enable-tools --disable-shared --prefix=/tmp/atf; make -j`nproc`; make install; cd ../
 # Add /tmp/atf/bin to system path.
 
+## clang only
+### CC=clang ./configure --with-atf=/tmp/atf
+
+## With tsan
+### CC=clang CFLAGS='-fsanitize=thread' ./configure --with-atf=/tmp/atf
 
 ## rvpc (perfctrs branch)
 export RVP_TRACE_ONLY=yes
